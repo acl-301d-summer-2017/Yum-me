@@ -1,0 +1,25 @@
+{
+  "name": "yum-me",
+  "version": "1.0.0",
+  "description": "Yum-me app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dabadabadoo-it/Yum-me.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dabadabadoo-it/Yum-me/issues"
+  },
+  "homepage": "https://github.com/Dabadabadoo-it/Yum-me#readme",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4"
+  }
+}
