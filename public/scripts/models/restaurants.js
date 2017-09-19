@@ -16,5 +16,27 @@ var app = app || {};
       Biz.all.push(this);
     }
 
+    Biz.search = function(callback) {
+      console.log('searching')
+      $.ajax({
+        url: '/yelp/search',
+        type: 'GET',
+        contentType: 'application/json',
+        data: {
+          term: 'delivery',
+          categories: 'Restaurants',
+          location: ['Portland'],
+          radius: app.userSettings.distance,
+          limit: 20,
+          price: app.userSettings.price,
+          open_now: app.userSettings.wantOpen,
+        }
+      })
+        .then(data => console.log(data),
+           err => console.error(err));
+    }
+
+
     module.Biz = Biz;
-})(app); 
+})(app);
+app.Biz.search();
