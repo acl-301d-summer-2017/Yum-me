@@ -20,10 +20,12 @@ app.get('/yelp/search', yelpSearchProxy);
 app.get('/yelp/business', yelpBusinessProxy);
   
 function googleProxy(request, response) {
-  console.log('--------------------------------------received google request!' + request.body);
+  console.log(request.body);
   superRequest
     .post(`https://www.googleapis.com/geolocation/v1/geolocate?key=${process.env.KEY}`)
-    .end((err, resp) => response.send(resp));
+    .end((err, resp) =>{ 
+      console.log(resp.body)
+      response.send(resp.body)});
 } 
 
 
