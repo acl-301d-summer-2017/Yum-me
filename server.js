@@ -18,7 +18,6 @@ app.get('/yelp/search', yelpSearchProxy)
 app.get('/yelp/business', yelpBusinessProxy)
 
 function yelpSearchProxy(request, response) {
-  
   client.search(request.query)
     .then(resp => response.send(resp.jsonBody.businesses))
     .catch(err => console.error(err));
