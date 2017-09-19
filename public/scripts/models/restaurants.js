@@ -25,7 +25,7 @@ var app = app || {};
         data: {
           term: 'delivery',
           categories: 'Restaurants',
-          location: ['Portland'],
+          location: 'Portland',
           radius: app.userSettings.distance,
           limit: 20,
           price: app.userSettings.price,
