@@ -14,8 +14,17 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('./public'));
 
 
-app.get('/yelp/search', yelpSearchProxy)
-app.get('/yelp/business', yelpBusinessProxy)
+
+app.get('/geolocation/*', proxy);
+app.get('/yelp/search', yelpSearchProxy);
+app.get('/yelp/business', yelpBusinessProxy);
+  
+function googleProxy(request, response) {
+  console.log('received google request!' + request.body);
+  superRequest
+    .post(`https://www.googleapis.com/geolocation/v1/geolocate?${process.env.KEY}`)
+    .end((err, resp) => response.send(resp));
+} 
 
 function yelpSearchProxy(request, response) {
   client.search(request.query)
@@ -28,6 +37,7 @@ function yelpBusinessProxy(request, response) { // to get photos
     .then(resp => response.send(resp.jsonBody.photos))
     .catch(err => console.error(err));
 }
+
 
 
 app.listen(PORT,()=>console.log(`server started: ${PORT}`));

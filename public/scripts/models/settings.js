@@ -24,6 +24,17 @@ var app = app || {};
                 this.flocation = [45.523, 122.676]
             }   
          },
+
+         getGeoLoc: function(callback) {
+             console.log("searching LOCATION")
+             $.ajax({
+                 url: '/geolocation/getGeoLoc',
+                 type: 'GET',
+                 contentType: 'application/json'
+             })
+             .then(resp => console.log(resp),
+             err => console.error(err));
+         }
       }
 
 module.userSettings = userSettings;
@@ -31,3 +42,5 @@ module.userSettings = userSettings;
 
 
 })(app); 
+
+app.userSettings.getGeoLoc();
