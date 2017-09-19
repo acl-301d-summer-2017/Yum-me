@@ -26,7 +26,7 @@ var app = app || {};
          },
 
          getGeoLoc: function(callback) {
-             console.log("searching LOCATION")
+             console.log("searching LOCATION, yes")
              $.ajax({
                  url: '/geolocation/getGeoLoc',
                  type: 'POST',
