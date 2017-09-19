@@ -21,7 +21,7 @@ var app = app || {};
                 this.distance = 2000,
                 this.price = '1, 2, 3',
                 this.wantOpen = false,
-                this.flocation = [45.523, 122.676]
+                this.location = [45.523, 122.676]
             }   
          },
 
@@ -29,11 +29,12 @@ var app = app || {};
              console.log("searching LOCATION")
              $.ajax({
                  url: '/geolocation/getGeoLoc',
-                 type: 'GET',
+                 type: 'POST',
                  contentType: 'application/json'
              })
              .then(resp => console.log(resp),
              err => console.error(err));
+             
          }
       }
 

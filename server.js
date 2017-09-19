@@ -16,14 +16,14 @@ app.use(express.static('./public'));
 
 
 function googleProxy(request, response) {
-  console.log('received google request!' + request.body);
+  console.log('--------------------------------------received google request!' + request.body);
   superRequest
-    .post(`https://www.googleapis.com/geolocation/v1/geolocate?${process.env.KEY}`)
+    .post(`https://www.googleapis.com/geolocation/v1/geolocate?key=${process.env.KEY}`)
     .end((err, resp) => response.send(resp));
 } 
 
-app.get('/geolocation/*', proxy)
-app.get('/yelp/*', proxy)
+app.post('/geolocation/*', googleProxy)
+
 
 function yelpProxy(request, response) {
   response.send(request.query)
@@ -43,7 +43,7 @@ client.search({
   term: "delivery"
 })
   .then(resp => console.log(resp))
-  .catch(err => console.error(err));
+  .catch(err => console.error("----------" + err));
 
 app.get('/yelp/*', yelpProxy)
 
