@@ -12,13 +12,21 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('./public'));
 
 function proxy(request, response) {
-  console.log('recieved yelp request' + request.body);
+  console.log('received yelp request' + request.body);
   superRequest
     .post(`https://api.yelp.com/v3/businesses/${request.params[0]}?term=food&location=portland`)
     .set('Authorization', `Bearer ${process.env.AUTHORIZATION}`)
     .end((err, resp) => response.send(resp));
 }
 
+function googleProxy(request, response) {
+  console.log('received google request!' + request.body);
+  superRequest
+    .post(`https://www.googleapis.com/geolocation/v1/geolocate?${process.env.KEY}`)
+    .end((err, resp) => response.send(resp));
+} 
+
+app.get('/geolocation/*', proxy)
 app.get('/yelp/*', proxy)
 
 
