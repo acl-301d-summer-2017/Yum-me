@@ -21,7 +21,7 @@ var app = app || {};
                 this.distance = 2000,
                 this.price = '1, 2, 3',
                 this.wantOpen = false,
-                this.location = [45.523, 122.676]
+                this.flocation = [45.523, 122.676]
             }   
          },
 
