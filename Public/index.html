@@ -1,8 +1,69 @@
 <!DOCTYPE html>
 <html>
     <head> 
+        <title>YumMe</title>
+        <link href='/style/state.css' type='text/css' rel='stylesheet'/>
+
+        <!-- append to #centerpiece -->
+        <script id='centerpiece-template' type="text/x-handlebars-template">
+            <div id='centerpiece-background'>
+                <a>
+                    <img src="{{}}"></img>
+                </a>
+                <div>
+                    <p id='business-name'>{{}}</p>
+                    <p id='distance'>{{}} mi</p>
+                </div>
+            </div>
+        </script>
+
+        <!-- append all to #grid-background -->
+        <script id='grid-item-template' type="text/x-handlebars-template">
+            <div class='l-grid-item'>
+                <img src="{{}}"></img>
+                <div class='l-distance-spacer'>
+                    <p>dist: {{}}</p>
+                </div>
+            </div>
+        </script>
     </head>
     <body>
+        <header>
+            <a href='/grid'>grid</a>
+            <p>GOOGLE SEARCH BAAAAAAAAAAAAAAAAAAAR</p>
+            <a href='/settings'>settings</a>
+        </header>
+        <main>
+            <div id='home'>
+                <div id='previousImg'>
+                    <h1><</h1>
+                </div>
+                <div id='centerpiece'>
+                    <!-- handlebars -->
+                </div>
+                <div id='nextImg'>
+                    <h1>></h1>
+                </div>
+            </div>
+            <div id='grid' class='hidden'>
+                <div id='grid-background'>
+                    <!-- handlebars -->
+                </div>
+            </div>
+            <div id='settings' class='hidden'>
+                <div id='settings-background'>
+                    <form>
+                        <fieldset>
+                            <legend>Settings:</legend>
+                            <label for='delivery'>Delivery</label>
+                                <input type='radio' id='delivery'>
+                            <label for='distance'>distance</label>
+                                <input type='******' id='distance'>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </main>
     </body>
     <footer>
     </footer>
