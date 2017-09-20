@@ -1,11 +1,15 @@
 var app = app || {};
 (function (module) {
-  homeControl = {};
-
+  let homeControl = {};
   homeControl.init = function() {
-    app.Biz.search(app.homeView.init);
+    app.userSettings.getGeoLoc( () => app.Biz.search(app.homeView.init) );
 
-    // add event listener
+    // TODO: add event listener
+  }
+
+  homeControl.display = function() {
+    app.homeView.display();
+    //TODO: add event listener
   }
 
   module.homeControl = homeControl;
