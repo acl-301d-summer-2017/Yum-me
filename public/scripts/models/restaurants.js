@@ -24,7 +24,8 @@ var app = app || {};
         contentType: 'application/json',
         data: {
           term: 'delivery, food',
-          location: 'Portland',
+          latitude: app.userSettings.location.lat,
+          longitude: app.userSettings.location.lng,
           radius: app.userSettings.distance,
           limit: app.userSettings.maxNumBiz,
           price: app.userSettings.price,

@@ -10,19 +10,26 @@ var app = app || {};
         maxNumBiz: 1,
 
         fetchSettings: function() {
-           if (localStorage) {
-                this.wantDelivery = localStorage.getItem('wantDelivery');
-                this.distance = localStorage.getItem('distance');
-                this.price = localStorage.getItem('price');
-                this.wantOpen = localStorage.getItem('wantOpen');
-                this.location = localStorage.getItem('location'); 
+           if (localStorage.settings) {
+               let localStorageSettings = JSON.parse(localStorage.getItem('settings'));
+
+                this.wantDelivery = localStorageSettings.wantDelivery;
+                this.distance = localStorageSettings.distance;
+                this.price = localStorageSettings.price;
+                this.wantOpen = localStorageSettings.wantOpen;
+                this.location = localStorageSettings.location; 
             }
             else {
-                this.wantDelivery = false,
-                this.distance = 2000,
-                this.price = '1, 2, 3',
-                this.wantOpen = false,
-                this.location = [45.523, 122.676]
+                var defaults = {
+                    wantDelivery: userSettings.wantDelivery,
+                    distance: userSettings.distance,
+                    price: userSettings.price,
+                    wantOpen: userSettings.wantOpen,
+                    location: userSettings.location
+                }
+                localStorage.setItem('settings', JSON.stringify(defaults))
+                
+                
             }   
          },
 
@@ -33,8 +40,13 @@ var app = app || {};
                  type: 'POST',
                  contentType: 'application/json'
              })
-             .then(resp => console.log(resp),
+             .then(resp => {    
+                userSettings.location = resp.location;
+                callback();
+            },
+
              err => console.error(err));
+             
              
          }
       }
@@ -45,4 +57,5 @@ module.userSettings = userSettings;
 
 })(app); 
 
+app.userSettings.fetchSettings();
 app.userSettings.getGeoLoc();
