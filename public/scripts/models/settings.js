@@ -10,19 +10,28 @@ var app = app || {};
         maxNumBiz: 1,
 
         fetchSettings: function() {
-           if (localStorage) {
-                this.wantDelivery = localStorage.getItem('wantDelivery');
-                this.distance = localStorage.getItem('distance');
-                this.price = localStorage.getItem('price');
-                this.wantOpen = localStorage.getItem('wantOpen');
-                this.location = localStorage.getItem('location'); 
+           if (localStorage.settings) {
+               console.log("are you here in the if")
+               let localStorageSettings = JSON.parse(localStorage.getItem('settings'));
+
+                this.wantDelivery = localStorageSettings.wantDelivery;
+                this.distance = localStorageSettings.distance;
+                this.price = localStorageSettings.price;
+                this.wantOpen = localStorageSettings.wantOpen;
+                this.location = localStorageSettings.location; 
             }
             else {
-                this.wantDelivery = false,
-                this.distance = 2000,
-                this.price = '1, 2, 3',
-                this.wantOpen = false,
-                this.location = [45.523, 122.676]
+                console.log("are you hitting this");
+                var defaults = {
+                    wantDelivery: userSettings.wantDelivery,
+                    distance: userSettings.distance ,
+                    price: userSettings.price,
+                    wantOpen: userSettings.wantOpen,
+                    location: userSettings.location
+                }
+                localStorage.setItem('settings', JSON.stringify(defaults))
+                console.log("are you hitting this");
+                
             }   
          },
 
@@ -46,3 +55,4 @@ module.userSettings = userSettings;
 })(app); 
 
 app.userSettings.getGeoLoc();
+app.userSettings.fetchSettings();
