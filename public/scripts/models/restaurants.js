@@ -2,6 +2,7 @@ var app = app || {};
 
 (function (module) {
     Biz.all = [];
+    let counter = 0;
     function Biz( bizData ) {
       this.name = bizData.name;
       this.id = bizData.id;
@@ -16,7 +17,7 @@ var app = app || {};
     }
     
     Biz.search = function(callback) {
-      console.log('searching')
+      counter = 0;
       $.ajax({
         url: '/yelp/search',
         type: 'GET',
@@ -25,13 +26,32 @@ var app = app || {};
           term: 'delivery, food',
           location: 'Portland',
           radius: app.userSettings.distance,
-          limit: 20,
+          limit: app.userSettings.maxNumBiz,
           price: app.userSettings.price,
           open_now: app.userSettings.wantOpen,
         }
       })
       .then(Biz.storeSearchData,
         err => console.error(err));
+          
+
+      Biz.fetchBusiness = function(thisID) {
+      
+        Biz.storeImages = function(data) {
+          thisBiz = Biz.all.filter(business => business.id === thisID)[0];
+          data.forEach(photo => thisBiz.imgUrls.push(photo));
+          counter++;
+          if(counter === app.userSettings.maxNumBiz && callback) callback();
+        }
+      
+        $.ajax({
+          url: '/yelp/business',
+          type: 'GET',
+          contentType: 'application/json',
+          data: { id: thisID }
+        })
+        .then(Biz.storeImages, err => console.error(err));
+      }
     }
         
     Biz.storeSearchData = function(data) {
@@ -40,26 +60,8 @@ var app = app || {};
         Biz.fetchBusiness(business.id);
       });
     }
-        
-    Biz.fetchBusiness = function(thisID) {
-
-      Biz.storeImages = function(data) {
-        thisBiz = Biz.all.filter(business => business.id === thisID)[0];
-        data.forEach(photo => thisBiz.imgUrls.push(photo));
-        console.log(thisBiz);
-      }
-
-      $.ajax({
-        url: '/yelp/business',
-        type: 'GET',
-        contentType: 'application/json',
-        data: { id: thisID }
-      })
-      .then(Biz.storeImages, err => console.error(err));
-    }
 
 
 
     module.Biz = Biz;
 })(app);
-app.Biz.search();

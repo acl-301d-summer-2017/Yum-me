@@ -7,6 +7,7 @@ var app = app || {};
         price: '1, 2, 3',
         wantOpen: false,
         location: [45.523, 122.676],
+        maxNumBiz: 1,
 
         fetchSettings: function() {
            if (localStorage) {
