@@ -11,7 +11,6 @@ var app = app || {};
 
         fetchSettings: function() {
            if (localStorage.settings) {
-               console.log("are you here in the if")
                let localStorageSettings = JSON.parse(localStorage.getItem('settings'));
 
                 this.wantDelivery = localStorageSettings.wantDelivery;
@@ -21,16 +20,15 @@ var app = app || {};
                 this.location = localStorageSettings.location; 
             }
             else {
-                console.log("are you hitting this");
                 var defaults = {
                     wantDelivery: userSettings.wantDelivery,
-                    distance: userSettings.distance ,
+                    distance: userSettings.distance,
                     price: userSettings.price,
                     wantOpen: userSettings.wantOpen,
                     location: userSettings.location
                 }
                 localStorage.setItem('settings', JSON.stringify(defaults))
-                console.log("are you hitting this");
+                
                 
             }   
          },
@@ -42,8 +40,13 @@ var app = app || {};
                  type: 'POST',
                  contentType: 'application/json'
              })
-             .then(resp => console.log(resp),
+             .then(resp => {    
+                userSettings.location = resp.location;
+                callback();
+            },
+
              err => console.error(err));
+             
              
          }
       }
@@ -54,5 +57,5 @@ module.userSettings = userSettings;
 
 })(app); 
 
-app.userSettings.getGeoLoc();
 app.userSettings.fetchSettings();
+app.userSettings.getGeoLoc();
