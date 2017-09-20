@@ -55,10 +55,25 @@
                     <form>
                         <fieldset>
                             <legend>Settings:</legend>
+                            <label for='distance'>Distance</label>
+                                <select>
+                                    <option value ='.5mi'>.5 mi</option>
+                                    <option value ='1mi'>1 mi</option>
+                                    <option value ='2mi'>2 mi</option>
+                                    <option value ='5mi'>5 mi</option>
+                                    <option value ='10mi'>10 mi</option>       
+                                </select></br>
+                                <label for='price'>Price</label>
+                                    <input type='checkbox' id='price' value='1'>
+                                    <input type='checkbox' id='price' value='2'>
+                                    <input type='checkbox' id='price' value='3'>
+                                    <input type='checkbox' id='price' value='4'></br>
                             <label for='delivery'>Delivery</label>
                                 <input type='radio' id='delivery'>
-                            <label for='distance'>distance</label>
-                                <input type='******' id='distance'>
+                            <label for='isOpen'>Open Now</label>
+                                <input type='radio' id='isOpen'>
+                                <button id="settings" type="submit" >Submit</button>
+                                
                         </fieldset>
                     </form>
                 </div>
