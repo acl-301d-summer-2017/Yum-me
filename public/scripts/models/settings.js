@@ -1,6 +1,8 @@
 var app = app || {};
 
+
 (function (module) {
+  var testData = {};  
   const userSettings = {
         wantDelivery: false,
         distance: 2000,
@@ -26,15 +28,27 @@ var app = app || {};
          },
 
          getGeoLoc: function(callback) {
-             console.log("searching LOCATION, yes")
+             console.log("searching LOCATION")
+             var latLong = {};
              $.ajax({
                  url: '/geolocation/getGeoLoc',
                  type: 'POST',
                  contentType: 'application/json'
              })
-             .then(resp => console.log(resp),
-             err => console.error(err));
+             .then(resp => {
+                testData = resp.location
+                console.log(testData)
+                // console.log(latLong)
+                })
              
+            
+             err => console.error(err);
+             
+         },
+
+         parseLatLong: function(testData) {
+            console.log(testData);
+
          }
       }
 
