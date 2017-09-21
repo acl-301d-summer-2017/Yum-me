@@ -46,21 +46,32 @@
     <body>
         <header>
             <a id="altView" href='/grid'>grid</a>
-            <h4>GOOGLE SEARCH BAAAAAAAAAAAAAAAAAAAR</h4>
+            <div>
+                <script>
+                    (function() {
+                        var cx = '016457744744518469389:1cybwaomyba';
+                        var gcse = document.createElement('script');
+                        gcse.type = 'text/javascript';
+                        gcse.async = true;
+                        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                        var s = document.getElementsByTagName('script')[0];
+                        s.parentNode.insertBefore(gcse, s);
+                    })();
+                </script>
+                <gcse:search></gcse:search>
+            </div>
             <a href='/settings'>settings</a>
         </header>
         <main>
             <div id='home' class='image-container'>
-                <div id='l-home-top-div'>
-                    <div id='previousImgBtn' name='previousImgBtn' class='slideshowControl, side-button'>
-                        <h1 class='left-right-button'><</h1>
-                    </div>
-                    <div id='centerpiece'>
-                        <h1 id='centerpiece-load-logo'>YumMe</h1>
-                    </div>
-                    <div id='nextImgBtn' name='nextImgBtn' class='slideshowControl, side-button'>
-                        <h1 class='left-right-button'>></h1>
-                    </div>
+                <div id='previousImgBtn' name='previousImgBtn' class='slideshowControl'>
+                    <h1><</h1>
+                </div>
+                <div id='centerpiece'>
+                    <!-- handlebars -->
+                </div>
+                <div id='nextImgBtn' name='nextImgBtn' class='slideshowControl'>
+                    <h1>></h1>
                 </div>
                 <div id='play-pause-button' name='pause-button' class='slideshowControl'>
                     <h1>||</h1>
