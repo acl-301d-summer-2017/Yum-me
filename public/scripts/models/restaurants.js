@@ -2,6 +2,7 @@ var app = app || {};
 
 (function (module) {
     Biz.all = [];
+    Biz.currentLocation = null;
     let counter = 0;
     function Biz( bizData ) {
       this.name = bizData.name;
@@ -15,6 +16,8 @@ var app = app || {};
       this.isOpen = !(bizData.is_closed);
 
       Biz.all.push(this);
+
+      
     }
     
     Biz.search = function(callback) {

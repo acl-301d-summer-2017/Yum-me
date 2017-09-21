@@ -38,9 +38,10 @@ var app = app || {};
         Img: currentImg,
         YelpUrl: currentBiz.yelpUrl,
         name: currentBiz.name,
-        distance: currentBiz.distance
+        distance: ((currentBiz.distance)*0.00062137).toFixed(2)
       }
       // TODO: prevent showing from recent homeView.history
+      app.Biz.currentLocation = currentBiz.latLong;
       homeView.history.push(bizDisplay);
       homeView.historyPosition = homeView.history.length - 1;
       // [Math.floor(Math.random() * currentBiz.imgUrls.length)];
@@ -94,21 +95,27 @@ var app = app || {};
   }
 
   homeView.initMap = function () {
-    
+    var userLat = app.userSettings.location.lat
+    console.log("this is the userLat :" + userLat)
+    var userLong = app.userSettings.location.lng
+    console.log("this is the userLong :" + userLong)
 
-    console.log('running init MAP***')
+    console.log("RESTO LOCATION : " + app.Biz.currentLocation)
+
+
+    
     var mapEle = $('googleMapScript')
     var mapUrl= "https://maps.googleapis.com/maps/api/js?key=AIzaSyAbe6TOoV-iKlX4DIUfhu-Cs5omGDJZIA0&callback=homeView.initMap"  
     mapEle.src = mapUrl;
     var myOptions = {
-      center: {lat: 45.222, lng: -122.666},
-      zoom: 4
+      center: {lat: userLat, lng: userLong},
+      zoom: 13
     };
 
     var map = new google.maps.Map(document.getElementById('map'), myOptions);
 
     var marker = new google.maps.Marker({
-      position: {lat: 45.222, lng: -122.666}, 
+      position: {lat: app.Biz.currentLocation[0], lng: app.Biz.currentLocation[1]}, 
       map: map, 
     });
     
