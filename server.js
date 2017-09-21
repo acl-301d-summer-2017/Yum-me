@@ -15,7 +15,13 @@ app.use(express.static('./public'));
 
 
 
-app.post('/geolocation/*', googleProxy)
+app.get('/', (request,response)=>{
+  response.sendFile('index.html', {root: './public'});
+});
+app.get('/monkeys',(request,response)=>{
+  response.send('hello');
+});
+app.post('/geolocation/*', googleProxy);
 app.get('/yelp/search', yelpSearchProxy);
 app.get('/yelp/business', yelpBusinessProxy);
   
