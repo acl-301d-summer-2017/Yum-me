@@ -4,11 +4,11 @@ var app = app || {};
   const userSettings = {
         wantDelivery: false,
         distance: 10000,
-        price: '1, 2, 3',
+        price: '1, 2, 3, 4',
         wantOpen: false,
         location: [45.523, 122.676],
         slideshowInterval: 10000,
-        maxNumBiz: 2,
+        maxNumBiz: 20,
         searchOffset: 0,
         gridNumColumns: 3,
 

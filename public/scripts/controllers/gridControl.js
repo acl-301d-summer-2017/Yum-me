@@ -8,7 +8,6 @@ var app = app || {};
         app.gridView.display();
 
         clearInterval(app.homeView.interval)
-
     }
 
     module.gridControl = gridControl;
