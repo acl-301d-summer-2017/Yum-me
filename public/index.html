@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>YumMe</title>
+        <link href='/style/state.css' type='text/css' rel='stylesheet'/>
+
+        <!-- append to #centerpiece -->
+        <script id='centerpiece-template' type="text/x-handlebars-template">
+            <div id='centerpiece-background'>
+                <a href="{{YelpUrl}}">  <!-- TODO: -->
+                    <img src="{{Img}}"></img>
+                </a>
+                <div id="info">
+                    <p id='business-name'>{{name}}</p>
+                    <p id='distance'>{{distance}} mi</p>
+                </div>
+            </div>
+        </script>
+
+        <!-- append all to #grid-background -->
+        <script id='grid-item-template' type="text/x-handlebars-template">
+            <a href='{{yelpUrl}}'>
+                <div class='l-grid-item'>
+                    <img src="{{imgUrl}}"></img>
+                    <div class='l-distance-spacer'>
+                        <p>{{distance}}</p>
+                    </div>
+                </div>
+            </a>
+        </script>
+    </head>
+    <body>
+        <header>
+            <a id="altView" href='/grid'>grid</a>
+            <p>GOOGLE SEARCH BAAAAAAAAAAAAAAAAAAAR</p>
+            <a href='/settings'>settings</a>
+        </header>
+        <main>
+            <div id='home'>
+                <div id='previousImgBtn' name='previousImgBtn' class='slideshowControl'>
+                    <h1><</h1>
+                </div>
+                <div id='centerpiece'>
+                    <!-- handlebars -->
+                </div>
+                <div id='nextImgBtn' name='nextImgBtn' class='slideshowControl'>
+                    <h1>></h1>
+                </div>
+                <div id='play-pause-button' name='pause-button' class='slideshowControl'>
+                    <h1>||</h1>
+                </div>
+            </div>
+            <div id='grid' class='hidden'>
+                <div id='grid-background'>
+                    <!-- handlebars -->
+                </div>
+            </div>
+            <div id='settings' class='hidden'>
+                <div id='settings-background'>
+                    <form id='userInput'>
+                        <fieldset>
+                            <legend>Settings:</legend>
+                            <label for='distance'>Distance</label>
+                                <select >
+                                    <option id="distance" value ='.8'>.5 mi</option>
+                                    <option id="distance" value ='1.61'>1 mi</option>
+                                    <option id="distance" value ='3.22'>2 mi</option>
+                                    <option id="distance" value ='8.05'>5 mi</option>
+                                    <option id="distance" value ='16.09'>10 mi</option>       
+                                </select></br>
+                                <label for='price'>Price</label>
+                                    <input type='checkbox' class='prices' id='price1' value='1'>
+                                    <input type='checkbox' class='prices' id='price2' value='2'>
+                                    <input type='checkbox' class='prices' id='price3' value='3'>
+                                    <input type='checkbox' class='prices' id='price4' value='4'></br>
+                            <label for='delivery'>Delivery</label>
+                                <input type='checkbox' class='deli' id='delivery' value= 'true'>
+                            <label for='isOpen'>Open Now</label>
+                                <input type='checkbox' class='isO' id='isOpen' value='true'>
+                                <button id="settings" type="submit" >Submit</button>
+                                
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+    <footer>
+    </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="/scripts/models/settings.js" type="text/javascript"></script>
+    <script src="/scripts/models/restaurants.js" type="text/javascript"></script>
+    <script src="/scripts/views/homeView.js" type="text/javascript"></script>
+    <script src="/scripts/views/settingsView.js" type="text/javascript"></script>
+    <script src="/scripts/views/gridView.js" type="text/javascript"></script>
+    <script src="/scripts/controllers/homeControl.js" type="text/javascript"></script>
+    <script src="/scripts/controllers/settingControl.js" type="text/javascript"></script>
+    <script src="/scripts/controllers/gridControl.js" type="text/javascript"></script>
+    <script src="/scripts/controllers/routes.js" type="text/javascript"></script>
+    
+    </html>
