@@ -31,7 +31,7 @@ var app = app || {};
     function render() {
       
       let currentBiz = app.Biz.all[Math.floor(Math.random() * app.userSettings.maxNumBiz)];
-      
+ 
       let currentImg = currentBiz.imgUrls[0];
       
       let bizDisplay = {

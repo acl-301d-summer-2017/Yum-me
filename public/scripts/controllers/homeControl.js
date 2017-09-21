@@ -3,15 +3,17 @@ var app = app || {};
   let homeControl = {};
 
   homeControl.init = function() {
+    
     app.userSettings.getGeoLoc( () => app.Biz.search(app.homeView.init) );
+
 
     $('#home').off('click');
     $('#home').on('click', '.slideshowControl', homeControl.slideControlHandler);
   };
 
-  homeControl.display = function() {
-    app.homeView.display();
-  };
+  // homeControl.display = function() {
+  //   app.homeView.display();
+  // };
 
 
   homeControl.slideControlHandler = function(event) {
