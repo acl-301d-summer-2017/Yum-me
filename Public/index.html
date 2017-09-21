@@ -19,12 +19,14 @@
 
         <!-- append all to #grid-background -->
         <script id='grid-item-template' type="text/x-handlebars-template">
-            <div class='l-grid-item'>
-                <img src="{{}}"></img>
-                <div class='l-distance-spacer'>
-                    <p>dist: {{}}</p>
+            <a href='{{yelpUrl}}'>
+                <div class='l-grid-item'>
+                    <img src="{{imgUrl}}"></img>
+                    <div class='l-distance-spacer'>
+                        <p>{{distance}}</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </script>
     </head>
     <body>
