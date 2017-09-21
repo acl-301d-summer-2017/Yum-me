@@ -13,6 +13,7 @@ var app = app || {};
     app.homeView.display();
   };
 
+
   homeControl.slideControlHandler = function(event) {
     let buttonName = $(event.target).parent().attr('name');
     switch(buttonName){
