@@ -11,6 +11,11 @@ var app = app || {};
     $('#home').on('click', '.slideshowControl', homeControl.slideControlHandler);
   };
 
+  // homeControl.display = function() {
+  //   app.homeView.display();
+  // };
+
+
   homeControl.slideControlHandler = function(event) {
     let buttonName = $(event.target).parent().attr('name');
     switch(buttonName){

@@ -29,6 +29,7 @@ var app = app || {};
   homeView.slideShow = function() {
     
     function render() {
+      
       let currentBiz = app.Biz.all[Math.floor(Math.random() * app.userSettings.maxNumBiz)];
  
       let currentImg = currentBiz.imgUrls[0];
@@ -37,16 +38,33 @@ var app = app || {};
         Img: currentImg,
         YelpUrl: currentBiz.yelpUrl,
         name: currentBiz.name,
-        distance: currentBiz.distance
+        distance: ((currentBiz.distance)*0.00062137).toFixed(2)
       }
       // TODO: prevent showing from recent homeView.history
+      app.Biz.currentLocation = currentBiz.latLong;
       homeView.history.push(bizDisplay);
       homeView.historyPosition = homeView.history.length - 1;
       // [Math.floor(Math.random() * currentBiz.imgUrls.length)];
       console.table(homeView.history);
       console.log(homeView.historyPosition);
 
+      // function initMap() {
+      //   var uluru = {lat: 45.22 , lng: -122.567};//lat long current 
+      //   var map = new google.maps.Map(document.getElementById('map'), {
+      //     zoom: 4,
+      //     center: uluru
+      //   });
+      //   console.log("uluru", uluru);
+      //   var marker = new google.maps.Marker({
+      //     position: uluru,
+      //     map: map
+      //   });
+      // }
+      
+      homeView.initMap();
       homeView.$centerpiece.empty().append(homeView.centerpieceTemplate(bizDisplay));
+      
+      
 
     }
     
@@ -76,6 +94,33 @@ var app = app || {};
     }
   }
 
+  homeView.initMap = function () {
+    var userLat = app.userSettings.location.lat
+    console.log("this is the userLat :" + userLat)
+    var userLong = app.userSettings.location.lng
+    console.log("this is the userLong :" + userLong)
+
+    console.log("RESTO LOCATION : " + app.Biz.currentLocation)
+
+
+    
+    var mapEle = $('googleMapScript')
+    var mapUrl= "https://maps.googleapis.com/maps/api/js?key=AIzaSyAbe6TOoV-iKlX4DIUfhu-Cs5omGDJZIA0&callback=homeView.initMap"  
+    mapEle.src = mapUrl;
+    var myOptions = {
+      center: {lat: userLat, lng: userLong},
+      zoom: 13
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), myOptions);
+
+    var marker = new google.maps.Marker({
+      position: {lat: app.Biz.currentLocation[0], lng: app.Biz.currentLocation[1]}, 
+      map: map, 
+    });
+    
+  
+  }
   
 
   module.homeView = homeView;

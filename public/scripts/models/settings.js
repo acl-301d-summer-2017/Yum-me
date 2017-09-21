@@ -8,7 +8,7 @@ var app = app || {};
         wantOpen: false,
         location: [45.523, 122.676],
         slideshowInterval: 10000,
-        maxNumBiz: 20,
+        maxNumBiz: 5,
         searchOffset: 0,
         gridNumColumns: 3,
 
@@ -20,7 +20,7 @@ var app = app || {};
                 this.distance = localStorageSettings.distance;
                 this.price = localStorageSettings.price;
                 this.wantOpen = localStorageSettings.wantOpen;
-                this.location = localStorageSettings.location; 
+                this.location = localStorageSettings;
                 this.slideshowInterval = localStorageSettings.slideshowInterval;
                 this.maxNumBiz = localStorageSettings.maxNumBiz;
                 this.searchOffset = localStorageSettings.searchOffset;
@@ -71,5 +71,4 @@ var app = app || {};
 
 })(app); 
 
-app.userSettings.fetchSettings();
-app.userSettings.getGeoLoc();
+// app
