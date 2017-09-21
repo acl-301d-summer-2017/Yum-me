@@ -29,6 +29,7 @@ var app = app || {};
   homeView.slideShow = function() {
     
     function render() {
+      
       let currentBiz = app.Biz.all[Math.floor(Math.random() * app.userSettings.maxNumBiz)];
       
       let currentImg = currentBiz.imgUrls[0];
@@ -46,7 +47,23 @@ var app = app || {};
       console.table(homeView.history);
       console.log(homeView.historyPosition);
 
+      // function initMap() {
+      //   var uluru = {lat: 45.22 , lng: -122.567};//lat long current 
+      //   var map = new google.maps.Map(document.getElementById('map'), {
+      //     zoom: 4,
+      //     center: uluru
+      //   });
+      //   console.log("uluru", uluru);
+      //   var marker = new google.maps.Marker({
+      //     position: uluru,
+      //     map: map
+      //   });
+      // }
+      
+      homeView.initMap();
       homeView.$centerpiece.empty().append(homeView.centerpieceTemplate(bizDisplay));
+      
+      
 
     }
     
@@ -76,6 +93,27 @@ var app = app || {};
     }
   }
 
+  homeView.initMap = function () {
+    
+
+    console.log('running init MAP***')
+    var mapEle = $('googleMapScript')
+    var mapUrl= "https://maps.googleapis.com/maps/api/js?key=AIzaSyAbe6TOoV-iKlX4DIUfhu-Cs5omGDJZIA0&callback=homeView.initMap"  
+    mapEle.src = mapUrl;
+    var myOptions = {
+      center: {lat: 45.222, lng: -122.666},
+      zoom: 4
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), myOptions);
+
+    var marker = new google.maps.Marker({
+      position: {lat: 45.222, lng: -122.666}, 
+      map: map, 
+    });
+    
+  
+  }
   
 
   module.homeView = homeView;
