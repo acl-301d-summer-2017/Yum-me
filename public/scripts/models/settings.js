@@ -7,6 +7,7 @@ var app = app || {};
         price: '1, 2, 3',
         wantOpen: false,
         location: [45.523, 122.676],
+        slideshowInterval: 10000,
         maxNumBiz: 2,
         searchOffset: 0,
         gridNumColumns: 3,
@@ -20,6 +21,7 @@ var app = app || {};
                 this.price = localStorageSettings.price;
                 this.wantOpen = localStorageSettings.wantOpen;
                 this.location = localStorageSettings.location; 
+                this.slideshowInterval = localStorageSettings.slideshowInterval;
                 this.maxNumBiz = localStorageSettings.maxNumBiz;
                 this.searchOffset = localStorageSettings.searchOffset;
                 this.gridNumColumns = localStorageSettings.gridNumColumns;
@@ -36,6 +38,7 @@ var app = app || {};
                 price: userSettings.price,
                 wantOpen: userSettings.wantOpen,
                 location: userSettings.location,
+                slideshowInterval: userSettings.slideshowInterval,
                 maxNumBiz: userSettings.maxNumBiz,
                 searchOffset: userSettings.searchOffset,
                 gridNumColumns: userSettings.gridNumColumns
