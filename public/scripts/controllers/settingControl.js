@@ -12,28 +12,41 @@ var app = app || {};
         $('#userInput').submit(function(event){
             event.preventDefault();
 
-            var disValue = $('#distance').val();
-            var datValue = parseFloat(disValue);
+            var disValue = $('select.distance option:selected').val();
+            console.log(disValue);
+            app.userSettings.distance = parseFloat(disValue);
+
             var deliValue = $('input.deli[type=checkbox]:checked').map(function(){return this.value;}).get();
-            var deliBool = JSON.parse(deliValue);
-            var openValue = $('input.isO[type=checkbox]:checked').map(function(){return this.value;}).get();
-            var openBool = JSON.parse(openValue);
-            var priceVal=$('input.prices[type=checkbox]:checked').map(function(){return this.value;}).get().join();
-            
-            // console.log(datValue, typeof(datValue));
-            var settings = {
-                wantDelivery: deliBool,
-                distance: datValue,
-                price: priceVal,
-                wantOpen: openBool,
-                location: app.userSettings.location,
+
+            var deliBool = function(){
+                if (deliValue == "true"){
+                    return JSON.parse(deliValue);
+                } else {
+                    return JSON.parse("false");
+                }
             };
-            localStorage.setItem('settings', JSON.stringify(settings));
-            //  console.log(app.userSettings.wantDelivery +'1');
-            // app.userSettings.wantDelivery = $('#delivery:input');
-            //  console.log(app.userSettings.wantDelivery);
-            app.homeControl.init();
-            // app.homeView.display();
+            app.userSettings.wantDelivery = deliBool();
+            console.log(app.userSettings.wantDelivery);
+
+            var openValue = $('input.isO[type=checkbox]:checked').map(function(){return this.value;}).get();
+            var openBool = function(){
+                if (openValue == "true"){
+                    return JSON.parse(openValue);
+                } else {
+                    return JSON.parse("false");
+                }
+            };
+            app.userSettings.wantOpen = openBool(); 
+            console.log(app.userSettings.wantOpen);  
+
+            app.userSettings.price = $('input.prices[type=checkbox]:checked').map(function(){return this.value;}).get().join(', ');
+            
+            app.userSettings.pushSettings();
+            page('/');
+            app.homeView.init();
+            
+            ///NEED TO REDIRECT BACK TO HOME PAGE
+            
         })
 
     }

@@ -33,13 +33,13 @@ function googleProxy(request, response) {
 function yelpSearchProxy(request, response) {
   client.search(request.query)
     .then(resp => response.send(resp.jsonBody.businesses))
-    .catch(err => console.error(err));
+    .catch(err => console.error('YELP', err));
 }
 
 function yelpBusinessProxy(request, response) { // to get photos
   client.business(request.query.id)
     .then(resp => response.send(resp.jsonBody.photos))
-    .catch(err => console.error(err));
+    .catch(err => console.error('YELP Business', err));
 }
 
 
