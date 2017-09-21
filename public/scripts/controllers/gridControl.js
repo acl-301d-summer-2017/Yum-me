@@ -4,7 +4,10 @@ var app = app || {};
     let gridControl = {};
 
     gridControl.display = function () {
+        
         app.gridView.display();
+
+        clearInterval(app.homeView.interval)
 
     }
 

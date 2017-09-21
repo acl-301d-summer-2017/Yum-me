@@ -6,6 +6,9 @@ var app = app || {};
   
     settingsControl.display = function () {
         app.settingsView.display();
+
+        clearInterval(app.homeView.interval)
+
     }
   
     $('#userInput').submit(function(event){

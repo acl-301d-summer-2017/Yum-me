@@ -7,8 +7,9 @@ var app = app || {};
         price: '1, 2, 3',
         wantOpen: false,
         location: [45.523, 122.676],
-        maxNumBiz: 10,
+        maxNumBiz: 2,
         searchOffset: 0,
+        gridNumColumns: 3,
 
         fetchSettings: function() {
            if (localStorage.settings) {
@@ -21,6 +22,7 @@ var app = app || {};
                 this.location = localStorageSettings.location; 
                 this.maxNumBiz = localStorageSettings.maxNumBiz;
                 this.searchOffset = localStorageSettings.searchOffset;
+                this.gridNumColumns = localStorageSettings.gridNumColumns;
             }
             else {
                 userSettings.pushSettings();
@@ -35,7 +37,8 @@ var app = app || {};
                 wantOpen: userSettings.wantOpen,
                 location: userSettings.location,
                 maxNumBiz: userSettings.maxNumBiz,
-                searchOffset: userSettings.searchOffset
+                searchOffset: userSettings.searchOffset,
+                gridNumColumns: userSettings.gridNumColumns
             }
             localStorage.setItem('settings', JSON.stringify(defaults))          
 
