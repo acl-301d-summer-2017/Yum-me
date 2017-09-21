@@ -9,7 +9,6 @@ var app = app || {};
 
   homeView.init = function() {
     homeView.display();
-    console.log(app.Biz.all);
   };
 // app.Biz.all[0].imgUrls[0]
 
