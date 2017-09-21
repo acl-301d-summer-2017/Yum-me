@@ -52,26 +52,26 @@
             </div>
             <div id='settings' class='hidden'>
                 <div id='settings-background'>
-                    <form>
-                        <fieldset id='userInput'>
+                    <form id='userInput'>
+                        <fieldset>
                             <legend>Settings:</legend>
                             <label for='distance'>Distance</label>
-                                <select>
-                                    <option value ='.8'>.5 mi</option>
-                                    <option value ='1.61'>1 mi</option>
-                                    <option value ='3.22'>2 mi</option>
-                                    <option value ='8.05'>5 mi</option>
-                                    <option value ='16.09'>10 mi</option>       
+                                <select >
+                                    <option id="distance" value ='.8'>.5 mi</option>
+                                    <option id="distance" value ='1.61'>1 mi</option>
+                                    <option id="distance" value ='3.22'>2 mi</option>
+                                    <option id="distance" value ='8.05'>5 mi</option>
+                                    <option id="distance" value ='16.09'>10 mi</option>       
                                 </select></br>
                                 <label for='price'>Price</label>
-                                    <input type='checkbox' id='price' value='1'>
-                                    <input type='checkbox' id='price' value='2'>
-                                    <input type='checkbox' id='price' value='3'>
-                                    <input type='checkbox' id='price' value='4'></br>
+                                    <input type='checkbox' class='prices' id='price1' value='1'>
+                                    <input type='checkbox' class='prices' id='price2' value='2'>
+                                    <input type='checkbox' class='prices' id='price3' value='3'>
+                                    <input type='checkbox' class='prices' id='price4' value='4'></br>
                             <label for='delivery'>Delivery</label>
-                                <input type='radio' id='delivery'>
+                                <input type='checkbox' class='deli' id='delivery' value= 'true'>
                             <label for='isOpen'>Open Now</label>
-                                <input type='radio' id='isOpen'>
+                                <input type='checkbox' class='isO' id='isOpen' value='true'>
                                 <button id="settings" type="submit" >Submit</button>
                                 
                         </fieldset>
