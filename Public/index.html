@@ -7,24 +7,26 @@
         <!-- append to #centerpiece -->
         <script id='centerpiece-template' type="text/x-handlebars-template">
             <div id='centerpiece-background'>
-                <a>
-                    <img src="{{}}"></img>
+                <a href="{{YelpUrl}}">  <!-- TODO: -->
+                    <img src="{{Img}}"></img>
                 </a>
-                <div>
-                    <p id='business-name'>{{}}</p>
-                    <p id='distance'>{{}} mi</p>
+                <div id="info">
+                    <p id='business-name'>{{name}}</p>
+                    <p id='distance'>{{distance}} mi</p>
                 </div>
             </div>
         </script>
 
         <!-- append all to #grid-background -->
         <script id='grid-item-template' type="text/x-handlebars-template">
-            <div class='l-grid-item'>
-                <img src="{{}}"></img>
-                <div class='l-distance-spacer'>
-                    <p>dist: {{}}</p>
+            <a href='{{yelpUrl}}'>
+                <div class='l-grid-item'>
+                    <img src="{{imgUrl}}"></img>
+                    <div class='l-distance-spacer'>
+                        <p>{{distance}}</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </script>
     </head>
     <body>
@@ -35,13 +37,13 @@
         </header>
         <main>
             <div id='home'>
-                <div id='previousImg'>
+                <div id='previousImgBtn'>
                     <h1><</h1>
                 </div>
                 <div id='centerpiece'>
                     <!-- handlebars -->
                 </div>
-                <div id='nextImg'>
+                <div id='nextImgBtn'>
                     <h1>></h1>
                 </div>
             </div>
@@ -85,7 +87,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
-    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="/scripts/models/settings.js" type="text/javascript"></script>
     <script src="/scripts/models/restaurants.js" type="text/javascript"></script>
     <script src="/scripts/views/homeView.js" type="text/javascript"></script>
