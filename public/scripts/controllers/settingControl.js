@@ -30,6 +30,7 @@ var app = app || {};
             // app.userSettings.wantDelivery = $('#delivery:input');
             //  console.log(app.userSettings.wantDelivery);
             app.homeControl.init();
+            // app.homeView.display();
         })
     }
   
