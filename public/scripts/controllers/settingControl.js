@@ -6,6 +6,9 @@ var app = app || {};
   
     settingsControl.display = function () {
         app.settingsView.display();
+
+        clearInterval(app.homeView.interval);
+      
         $('#userInput').submit(function(event){
             event.preventDefault();
 
@@ -32,6 +35,7 @@ var app = app || {};
             app.homeControl.init();
             // app.homeView.display();
         })
+
     }
   
 

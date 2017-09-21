@@ -6,6 +6,7 @@ var app = app || {};
     function Biz( bizData ) {
       this.name = bizData.name;
       this.id = bizData.id;
+      this.distance = Math.floor(bizData.distance);
       this.latLong = [bizData.coordinates.latitude, bizData.coordinates.longitude];
       this.price = bizData.price.length;
       this.delivery = bizData.transactions.includes('delivery');
@@ -17,7 +18,15 @@ var app = app || {};
     }
     
     Biz.search = function(callback) {
-      counter = 0;
+      console.log(app.userSettings.searchOffset);
+      if(app.userSettings.searchOffset < 5) app.userSettings.searchOffset++;
+      else app.userSettings.searchOffset = 0;
+      app.userSettings.pushSettings();
+      console.log(app.userSettings.searchOffset);
+
+
+      counter = 0; // counter to track individual business query
+
       $.ajax({
         url: '/yelp/search',
         type: 'GET',
@@ -30,6 +39,7 @@ var app = app || {};
           limit: app.userSettings.maxNumBiz,
           price: app.userSettings.price,
           open_now: app.userSettings.wantOpen,
+          offset: app.userSettings.searchOffset * app.userSettings.maxNumBiz
         }
       })
       .then(Biz.storeSearchData,
