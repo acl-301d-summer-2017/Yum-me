@@ -67,9 +67,10 @@ div #home{
 }
 
 #grid{
-    width: 780px;
+    width: 750px;
     height: 550px;
     overflow-y: scroll;
+    overflow-x:hidden;
     /* overflow:visible; */
     margin: 0% auto 0 auto;
     padding-top: 5em;   
@@ -97,12 +98,16 @@ div.grid-row {
 
 /* SETTINGS FORM*/
 
-userInput{
+#userInput{
     display:flex;
+    justify-content: center;
+    margin-top: 20%;
 }
 
 #userSettings{
     width: 60%;
+    border: none;
+    display: inline;
 }
 
 /*HOVER EFFECTS*/
