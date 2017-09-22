@@ -21,33 +21,35 @@ var app = app || {};
     }
     
     Biz.search = function(callback) {
-      console.log(app.userSettings.searchOffset);
+      Biz.all = [];      
+
       if(app.userSettings.searchOffset < 5) app.userSettings.searchOffset++;
       else app.userSettings.searchOffset = 0;
       app.userSettings.pushSettings();
-      console.log(app.userSettings.searchOffset);
-
 
       counter = 0; // counter to track individual business query
+      let searchTerms = app.userSettings.wantDelivery ? 'delivery, food' : 'food';
+      searchTerms += `, ${app.userSettings.searchTerms}`;
+
+      console.log(localStorage.settings);
 
       $.ajax({
         url: '/yelp/search',
         type: 'GET',
         contentType: 'application/json',
         data: {
-          term: 'delivery, food',
+          term: searchTerms,
           latitude: app.userSettings.location.lat,
           longitude: app.userSettings.location.lng,
           radius: app.userSettings.distance,
           limit: app.userSettings.maxNumBiz,
           price: app.userSettings.price,
           open_now: app.userSettings.wantOpen,
-          offset: app.userSettings.searchOffset * app.userSettings.maxNumBiz
+          offset: app.userSettings.searchOffset * (55 - app.userSettings.maxNumBiz) / 5
         }
       })
       .then(Biz.storeSearchData,
         err => console.error(err));
-          
 
       Biz.fetchBusiness = function(thisID) {
       
@@ -73,6 +75,7 @@ var app = app || {};
         new Biz(business);
         Biz.fetchBusiness(business.id);
       });
+      console.table(Biz.all);
     }
 
 

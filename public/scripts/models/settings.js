@@ -2,15 +2,19 @@ var app = app || {};
 
 (function (module) {
   const userSettings = {
+
         wantDelivery: false,
-        distance: 10000,
+        distance: 8050,
         price: '1, 2, 3, 4',
         wantOpen: false,
-        location: [45.523, 122.676],
+        
         slideshowInterval: 10000,
-        maxNumBiz: 5,
-        searchOffset: 0,
+        searchTerms: '',
+
+        maxNumBiz: 10,
         gridNumColumns: 3,
+        location: [45.523, 122.676],
+        searchOffset: 0,
 
         fetchSettings: function() {
            if (localStorage.settings) {
@@ -25,6 +29,7 @@ var app = app || {};
                 this.maxNumBiz = localStorageSettings.maxNumBiz;
                 this.searchOffset = localStorageSettings.searchOffset;
                 this.gridNumColumns = localStorageSettings.gridNumColumns;
+                this.searchTerms = localStorageSettings.searchTerms;
             }
             else {
                 userSettings.pushSettings();
@@ -41,14 +46,14 @@ var app = app || {};
                 slideshowInterval: userSettings.slideshowInterval,
                 maxNumBiz: userSettings.maxNumBiz,
                 searchOffset: userSettings.searchOffset,
-                gridNumColumns: userSettings.gridNumColumns
+                gridNumColumns: userSettings.gridNumColumns,
+                searchTerms: userSettings.searchTerms
             }
             localStorage.setItem('settings', JSON.stringify(defaults))          
 
         },
 
         getGeoLoc: function(callback) {
-            console.log("searching LOCATION")
             $.ajax({
                  url: '/geolocation/getGeoLoc',
                  type: 'POST',
