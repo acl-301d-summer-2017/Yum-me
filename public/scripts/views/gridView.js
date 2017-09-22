@@ -21,7 +21,8 @@ var app = app || {};
                 allImages.push({
                     imgUrl: bzns.imgUrls[i],
                     yelpUrl: bzns.yelpUrl,
-                    distance:((bzns.distance)*0.00062137).toFixed(2)
+                    distance:((bzns.distance)*0.00062137).toFixed(2) + " mi",
+                    
                 })
             }
         });
