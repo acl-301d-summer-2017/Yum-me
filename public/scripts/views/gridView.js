@@ -6,8 +6,8 @@ var app = app || {};
     gridView.display = function () {
         $('#grid').show().siblings().hide();
         let $altView = $('#altView');
-        $altView.attr('href', '/home');
-        $altView.text('Home');
+        $('.atView').attr('href', '/home');
+        $altView.attr('src','/style/icons/home.png');
         gridView.renderAll();
     }
 

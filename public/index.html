@@ -4,12 +4,12 @@
     <head> 
         <title>YumMe</title>
         <link href="https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans" rel="stylesheet">
-        <!-- <link href='/style/base.css' type='text/css' rel='stylesheet'/>
-        <link href='/style/layout.css' type='text/css' rel='stylesheet'/>
-        <link href='/style/module.css' type='text/css' rel='stylesheet'/>
-        <link href='/style/state.css' type='text/css' rel='stylesheet'/>
-        <link href='/style/theme.css' type='text/css' rel='stylesheet'/> -->
+
         <link href='/style/home.css' type='text/css' rel='stylesheet'/>
+        <link href='/style/theme.css' type='text/css' rel='stylesheet'/>
+        <link href='/style/icon.css' type='text/css' rel='stylesheet'/>
+        <link rel="shortcut icon" href="favicon.ico" src="favicon.ico" />
+        
 
         <!-- append to #centerpiece -->
         <script id='centerpiece-template' type="text/x-handlebars-template">
@@ -46,7 +46,8 @@
     </head>
     <body>
         <header>
-            <a id="altView" href='/grid'>grid</a>
+            <a href='/grid' class="atView"><img id="altView" class="icon"></a>
+            
             <div>
                 <script>
                     (function() {
@@ -61,10 +62,11 @@
                 </script>
                 <gcse:search></gcse:search>
             </div>
-            <a id="settingView" href='/settings'>settings</a>
+            <a href='/settings'><img class="icon" src="style/icons/equalizer.png"></a>
+
         </header>
         <main>
-            <div id='home' class='image-container'>
+            <div id='home'  class='image-container'>
                 <div id='previousImgBtn' name='previousImgBtn' class='slideshowControl'>
                     <h1><</h1>
                 </div>
@@ -80,24 +82,7 @@
                 <section id="map-section">
                         <h3>GOOGLE MAP!</h3>
                         <div id="map"></div>
-                  <!-- <script>    
-                  function initMap() {
-                      
-                            var uluru = {lat: 45.22 , lng: -122.567};//lat long current 
-                            var map = new google.maps.Map(document.getElementById('map'), {
-                              zoom: 4,
-                              center: uluru
-                            });
-                            console.log("uluru", uluru);
-                            var marker = new google.maps.Marker({
-                              position: uluru,
-                              map: map
-                            });
-                          }
-
-                    </script>   -->
                         
-                    
                 </section>
             </div>
             <div id='grid' class='hidden, image-container'>
