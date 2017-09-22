@@ -1,75 +1,103 @@
 html, body {
     width: 100%;
-    margin: 0 auto;
+    height:100%;
+    font-family: 'Open Sans', sans-serif;
+    /*GRADIENT*/
+    background: rgb(255, 255, 255); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230)); /* Standard syntax */    
+}
+
+header{
+    width: 100%;
+    padding:2%;
+}
+
+#googleBar{
+    width: 80%;
+    margin: -15px 4% 0 0;
+    float: right;
 }
 
 main{
-    width: 90%;
-    text-align: center;
+    /* width: 100%; */
+    /* margin-top: 10%; */
+    text-align: center;    
+}
+
+.image-container{
+    margin-top:5%;
 }
 
 div #home{
-    /* display: flex;
-    justify-content: center; */
-
+    margin-top: 8%;
 }
 
 #centerpiece img{
     width: 600px;
     height: 600px;
-    object-fit: cover
+    object-fit: cover;
+}
+
+#playback{
+    width: 10%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 #grid{
-    width: 600px;
-    height: 600px;
-/*     overflow-y: scroll; */
-    overflow:visible;
-    margin: 0 auto;
-    
+    width: 750px;
+    height: 550px;
+    overflow-y: scroll;
+    /* overflow:visible; */
+    margin: 0% auto 0 auto;
+    padding-top: 5em;   
 }
 
 div.grid-row {    
-    display: flex;
-    /* justify-content: center; */
-    
+    display: flex;    
 }
 
 .l-grid-item img{
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     object-fit: cover   
 }
 
-/*HOVER EFFECTS*/
+/* #distance{
+    font-size: 400%;
+    margin-top: -120px;
+    padding: 2%;
+    width: 300px;
+    z-index: 30;
+    background-color: rgba(241, 178, 18, 0.7)
+} */
 
+/*HOVER EFFECTS*/
 div.grid-row a {
     display: block;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /*border: 1px dotted #f00;*/
     position: relative;
     width: 50%;
     float: left;
     color: #fff;
     font-size: 75%;
-    /*overflow: hidden;*/
     transition: all 0.25s ease-in;
 }
   
 div.grid-row a img {
-    /* width: 100%; */
-    /* height: auto; */
     display: block;
     z-index: 15;
 }
   
 div.grid-row a::after {
-    /* content: ""; */
     display: block;
     box-sizing: border-box;
-    /* background: url(http://newscientistprojects.com/wp-content/themes/wowway/images/buttons.png) no-repeat -186px 5px #faa619; */
     border-radius: 100%;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
     width: 2em;
@@ -81,7 +109,6 @@ div.grid-row a::after {
     z-index: 10;
     opacity: 0;
     transition: all 0.35s ease-in;
-    /*opacity: 0;*/
 }
   
 div.grid-row a .l-distance-spacer {
@@ -97,17 +124,7 @@ div.grid-row a .l-distance-spacer {
     transition: all 0.25s ease-in;
     z-index:-1;
 }
-  
-/* div.grid-row a h2 {
-    margin: 1em 0 0 0;
-    font-size: 125%;
-} */
-  
-/* div.grid-row a p {
-    margin: 1em 0;
-    color: #737373;
-} */
-                    
+                      
 div.grid-row a:hover, a:focus {
     z-index: 5;
     margin-top: -5em;
@@ -119,11 +136,3 @@ div.grid-row a:hover::after, a:focus::after {
     bottom: 4em;
     opacity: 1;
 }
-  
-/* div.grid-row a:hover div, a:focus div {
-    opacity: 1;
-    bottom: -3em;
-} */
-
-
-/* .foodDisplay{ object-fit: cover } */
