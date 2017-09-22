@@ -7,7 +7,7 @@ var app = app || {};
         $('#grid').show().siblings().hide();
         let $altView = $('#altView');
         $altView.attr('href', '/home');
-        $altView.text('Home');
+        $altView.attr('src','/style/icons/home.png');
         gridView.renderAll();
     }
 

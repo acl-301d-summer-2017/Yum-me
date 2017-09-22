@@ -20,7 +20,7 @@ var app = app || {};
   homeView.display = function () {
     let $altView = $('#altView');
     $altView.attr('href', '/grid');
-    $altView.text('Grid');
+    $altView.attr('src','/style/icons/table2.png');
     
     $('#home').show().siblings().hide();
     homeView.slideShow();
@@ -48,18 +48,6 @@ var app = app || {};
       console.table(homeView.history);
       console.log(homeView.historyPosition);
 
-      // function initMap() {
-      //   var uluru = {lat: 45.22 , lng: -122.567};//lat long current 
-      //   var map = new google.maps.Map(document.getElementById('map'), {
-      //     zoom: 4,
-      //     center: uluru
-      //   });
-      //   console.log("uluru", uluru);
-      //   var marker = new google.maps.Marker({
-      //     position: uluru,
-      //     map: map
-      //   });
-      // }
       
       homeView.initMap();
       homeView.$centerpiece.empty().append(homeView.centerpieceTemplate(bizDisplay));

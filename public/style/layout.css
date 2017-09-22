@@ -41,3 +41,8 @@
   display: inline;
   float: right;
 }
+
+.icon {
+  height: 3em;
+  width: 3em;
+}
