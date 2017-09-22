@@ -19,8 +19,8 @@ var app = app || {};
 
   homeView.display = function () {
     let $altView = $('#altView');
-    $altView.attr('href', '/grid');
-    $altView.text('Grid');
+    $('.atView').attr('href', '/grid');
+    $altView.attr('src','/style/icons/table2.png');
 
     $('#home').show().siblings().hide();
     homeView.slideShow();
@@ -44,7 +44,6 @@ var app = app || {};
       app.Biz.currentLocation = currentBiz.latLong;
       homeView.history.push(bizDisplay);
       homeView.historyPosition = homeView.history.length - 1;
-
 
       function initMap() {
         var uluru = {lat: 45.22 , lng: -122.567};//lat long current 

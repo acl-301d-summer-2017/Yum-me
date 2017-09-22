@@ -1,4 +1,4 @@
-.image-container {
+/* .image-container {
   border: red solid;
 }
 
@@ -40,4 +40,10 @@
 #distance {
   display: inline;
   float: right;
+
+}
+
+.icon {
+  height: 3em;
+  width: 3em;
 }
