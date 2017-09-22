@@ -1,4 +1,4 @@
-.image-container {
+/* .image-container {
   border: red solid;
 }
 
@@ -40,4 +40,90 @@
 #distance {
   display: inline;
   float: right;
+} */
+
+#grid-background{
+  width: 90%;
+}
+a :not(#settingView, #altView){
+  a {
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /*border: 1px dotted #f00;*/
+    position: relative;
+    width: 50%;
+    float: left;
+    color: #fff;
+    font-size: 75%;
+    /*overflow: hidden;*/
+    transition: all 0.25s ease-in;
+  }
+
+  a img {
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 15;
+  }
+
+  a::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    background: url(http://newscientistprojects.com/wp-content/themes/wowway/images/buttons.png) no-repeat -186px 5px #faa619;
+    border-radius: 100%;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    left: 50%;
+    bottom: 7em;
+    margin-left: -1em;
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.35s ease-in;
+    /*opacity: 0;*/
+  }
+
+  a div {
+    box-sizing: border-box;
+    padding: 0 1em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    /*border: 1px dotted yellow;*/
+    opacity: 0;
+    background: #272727;
+    transition: all 0.25s ease-in;
+  }
+
+  a h2 {
+    margin: 1em 0 0 0;
+    font-size: 125%;
+  }
+
+  a p {
+    margin: 1em 0;
+    color: #737373;
+  }
+
+  a:hover, a:focus {
+    z-index: 5;
+    margin-top: -5em;
+    padding-bottom: 5em;
+    outline: none;
+  }
+
+  a:hover::after, a:focus::after {
+    bottom: 4em;
+    opacity: 1;
+  }
+
+  a:hover div, a:focus div {
+    opacity: 1;
+    bottom: -3em;
+  }
 }

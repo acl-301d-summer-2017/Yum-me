@@ -1,0 +1,129 @@
+html, body {
+    width: 100%;
+    margin: 0 auto;
+}
+
+main{
+    width: 90%;
+    text-align: center;
+}
+
+div #home{
+    /* display: flex;
+    justify-content: center; */
+
+}
+
+#centerpiece img{
+    width: 600px;
+    height: 600px;
+    object-fit: cover
+}
+
+#grid{
+    width: 600px;
+    height: 600px;
+/*     overflow-y: scroll; */
+    overflow:visible;
+    margin: 0 auto;
+    
+}
+
+div.grid-row {    
+    display: flex;
+    /* justify-content: center; */
+    
+}
+
+.l-grid-item img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover   
+}
+
+/*HOVER EFFECTS*/
+
+div.grid-row a {
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /*border: 1px dotted #f00;*/
+    position: relative;
+    width: 50%;
+    float: left;
+    color: #fff;
+    font-size: 75%;
+    /*overflow: hidden;*/
+    transition: all 0.25s ease-in;
+}
+  
+div.grid-row a img {
+    /* width: 100%; */
+    /* height: auto; */
+    display: block;
+    z-index: 15;
+}
+  
+div.grid-row a::after {
+    /* content: ""; */
+    display: block;
+    box-sizing: border-box;
+    /* background: url(http://newscientistprojects.com/wp-content/themes/wowway/images/buttons.png) no-repeat -186px 5px #faa619; */
+    border-radius: 100%;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    left: 50%;
+    bottom: 7em;
+    margin-left: -1em;
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.35s ease-in;
+    /*opacity: 0;*/
+}
+  
+div.grid-row a .l-distance-spacer {
+    box-sizing: border-box;
+    padding: 0 1em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:5em;
+    text-align: center;
+    opacity: 1;
+    background: #df741f;
+    transition: all 0.25s ease-in;
+    z-index:-1;
+}
+  
+/* div.grid-row a h2 {
+    margin: 1em 0 0 0;
+    font-size: 125%;
+} */
+  
+/* div.grid-row a p {
+    margin: 1em 0;
+    color: #737373;
+} */
+                    
+div.grid-row a:hover, a:focus {
+    z-index: 5;
+    margin-top: -5em;
+    padding-bottom: 5em;
+    outline: none;
+}
+  
+div.grid-row a:hover::after, a:focus::after {
+    bottom: 4em;
+    opacity: 1;
+}
+  
+/* div.grid-row a:hover div, a:focus div {
+    opacity: 1;
+    bottom: -3em;
+} */
+
+
+/* .foodDisplay{ object-fit: cover } */

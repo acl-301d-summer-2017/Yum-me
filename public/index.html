@@ -4,17 +4,18 @@
     <head> 
         <title>YumMe</title>
         <link href="https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans" rel="stylesheet">
-        <link href='/style/base.css' type='text/css' rel='stylesheet'/>
+        <!-- <link href='/style/base.css' type='text/css' rel='stylesheet'/>
         <link href='/style/layout.css' type='text/css' rel='stylesheet'/>
         <link href='/style/module.css' type='text/css' rel='stylesheet'/>
         <link href='/style/state.css' type='text/css' rel='stylesheet'/>
-        <link href='/style/theme.css' type='text/css' rel='stylesheet'/>
+        <link href='/style/theme.css' type='text/css' rel='stylesheet'/> -->
+        <link href='/style/home.css' type='text/css' rel='stylesheet'/>
 
         <!-- append to #centerpiece -->
         <script id='centerpiece-template' type="text/x-handlebars-template">
             <div id='centerpiece-background'>
                 <a href="{{YelpUrl}}">  <!-- TODO: -->
-                    <img src="{{Img}}"></img>
+                    <img id="foodDisplay" src="{{Img}}"></img>
                 </a>
                 <div id="info">
                     <p id='business-name'>{{name}}</p>
@@ -60,7 +61,7 @@
                 </script>
                 <gcse:search></gcse:search>
             </div>
-            <a href='/settings'>settings</a>
+            <a id="settingView" href='/settings'>settings</a>
         </header>
         <main>
             <div id='home' class='image-container'>
