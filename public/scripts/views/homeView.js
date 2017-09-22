@@ -21,7 +21,7 @@ var app = app || {};
     let $altView = $('#altView');
     $('.atView').attr('href', '/grid');
     $altView.attr('src','/style/icons/table2.png');
-    
+
     $('#home').show().siblings().hide();
     homeView.slideShow();
   }
@@ -40,20 +40,26 @@ var app = app || {};
         name: currentBiz.name,
         distance: ((currentBiz.distance)*0.00062137).toFixed(2)
       }
-      // TODO: prevent showing from recent homeView.history
+      
       app.Biz.currentLocation = currentBiz.latLong;
       homeView.history.push(bizDisplay);
       homeView.historyPosition = homeView.history.length - 1;
-      // [Math.floor(Math.random() * currentBiz.imgUrls.length)];
-      console.table(homeView.history);
-      console.log(homeView.historyPosition);
 
+      function initMap() {
+        var uluru = {lat: 45.22 , lng: -122.567};//lat long current 
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: uluru
+        });
+        console.log("uluru", uluru);
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
       
       homeView.initMap();
       homeView.$centerpiece.empty().append(homeView.centerpieceTemplate(bizDisplay));
-      
-      
-
     }
     
     clearInterval(app.homeView.interval);
@@ -63,8 +69,7 @@ var app = app || {};
 
   homeView.renderSelect = function(index) {
     homeView.$centerpiece.empty().append(homeView.centerpieceTemplate(homeView.history[index]));
-    console.table(homeView.history);
-    console.log(homeView.historyPosition);
+
   };
 
   homeView.showPlayButton = function(isOn) {
@@ -84,13 +89,7 @@ var app = app || {};
 
   homeView.initMap = function () {
     var userLat = app.userSettings.location.lat
-    console.log("this is the userLat :" + userLat)
     var userLong = app.userSettings.location.lng
-    console.log("this is the userLong :" + userLong)
-
-    console.log("RESTO LOCATION : " + app.Biz.currentLocation)
-
-
     
     var mapEle = $('googleMapScript')
     var mapUrl= "https://maps.googleapis.com/maps/api/js?key=AIzaSyAbe6TOoV-iKlX4DIUfhu-Cs5omGDJZIA0&callback=homeView.initMap"  

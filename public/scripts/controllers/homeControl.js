@@ -4,11 +4,17 @@ var app = app || {};
 
   homeControl.init = function() {
     
+    app.userSettings.fetchSettings();
     app.userSettings.getGeoLoc( () => app.Biz.search(app.homeView.init) );
-
+    app.settingsView.presets();
 
     $('#home').off('click');
     $('#home').on('click', '.slideshowControl', homeControl.slideControlHandler);
+  };
+
+  homeControl.refreshSearch = function() {
+
+    app.Biz.search(app.homeView.init)
   };
 
   // homeControl.display = function() {
