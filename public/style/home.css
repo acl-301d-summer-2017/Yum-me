@@ -32,7 +32,7 @@ main{
 }
 
 .image-container{
-    margin-top:5%;
+    margin-top:4%;
 }
 
 div #home{
@@ -40,8 +40,8 @@ div #home{
 }
 
 #centerpiece img{
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     object-fit: cover;
 }
 
@@ -50,6 +50,8 @@ div #home{
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    line-height: 0.1em;
+    
 }
 
 #info {
