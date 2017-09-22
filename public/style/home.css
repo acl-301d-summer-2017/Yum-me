@@ -104,10 +104,25 @@ div.grid-row {
     margin-top: 20%;
 }
 
+legend{
+    text-transform: uppercase;
+    text-size: 150%;
+
+}
+
 #userSettings{
-    width: 60%;
-    border: none;
+    width: 50%;
+    border-color: rgba(150, 150, 150, .3);;
     display: inline;
+    background-color: rgba(190, 190, 190, .3);
+}
+
+.distance, .prices, .deli, .isO, .search-count{
+    background-color: rgb(200,200,200);
+}
+
+label{
+    margin: 1%;
 }
 
 /*HOVER EFFECTS*/
