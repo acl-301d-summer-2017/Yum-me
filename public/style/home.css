@@ -80,6 +80,17 @@ div.grid-row {
     background-color: rgba(241, 178, 18, 0.7)
 } */
 
+
+/* SETTINGS FORM*/
+
+userInput{
+    display:flex;
+}
+
+#userSettings{
+    width: 60%;
+}
+
 /*HOVER EFFECTS*/
 div.grid-row a {
     display: block;
