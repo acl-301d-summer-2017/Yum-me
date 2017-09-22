@@ -52,6 +52,18 @@ div #home{
     justify-content: space-between;
 }
 
+#info {
+    width: 515px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 56px;
+}
+
+#map-section {
+    margin-top: 5em;
+}
+
 #grid{
     width: 780px;
     height: 550px;
