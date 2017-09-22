@@ -105,7 +105,7 @@ div.grid-row {
 #userInput{
     display:flex;
     justify-content: center;
-    margin-top: 20%;
+    margin-top: 11%;
 }
 
 legend{
@@ -114,11 +114,33 @@ legend{
 
 }
 
+div#settings-background {
+    height: 20em;
+}
+
+#userInput {
+    height: 100%;
+}
+
 #userSettings{
     width: 50%;
     border-color: rgba(150, 150, 150, .3);;
     display: inline;
     background-color: rgba(190, 190, 190, .3);
+    height: 100%;
+}
+
+#userSettings div {
+    margin: 3.8% auto;
+}
+
+#deliveryIsOpen p {
+    display: inline;
+}
+
+#delOpenSpacer {
+    width: 2em;
+    height: 1px;
 }
 
 .distance, .prices, .deli, .isO, .search-count{

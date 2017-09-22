@@ -98,32 +98,38 @@
                     <form id='userInput'>
                         <fieldset id="userSettings">
                             <legend>Search Settings:</legend>
-                            <label for='distance'>Distance</label>
-                                <select class="distance">
-                                    <option value ='800'>.5 mi</option>
-                                    <option value ='1610'>1 mi</option>
-                                    <option value ='3220'>2 mi</option>
-                                    <option value ='8050' selected='selected'>5 mi</option>
-                                    <option value ='16090'>10 mi</option>
-                                    <option value ='32200'>20 mi</option>
-                                </select>
-                            
-                            <label for='price'>Price</label>
-                                <input type='checkbox' class='prices' id='price1' value='1'>
-                                <input type='checkbox' class='prices' id='price2' value='2'>
-                                <input type='checkbox' class='prices' id='price3' value='3'>
-                                <input type='checkbox' class='prices' id='price4' value='4'>
-                            <br/>
-                            <label for='delivery'>Delivery</label>
-                                <input type='checkbox' class='deli' id='delivery' value= 'true'>
-                            <label for='isOpen'>Open Now</label>
-                                <input type='checkbox' class='isO' id='isOpen' value='true'>
-                            <br/>
-                            <label for='terms'>Narrow Search</label>
-                                <input type="text" id='terms' placeholder='italian sushi beer ...'>
-                            <br/>
-                            <label for='search-count'>Search Limit</label>
-                                <select class="search-count">
+                            <div>
+                                <label for='distance'>Distance</label>
+                                    <select class="distance">
+                                        <option value ='800'>.5 mi</option>
+                                        <option value ='1610'>1 mi</option>
+                                        <option value ='3220'>2 mi</option>
+                                        <option value ='8050' selected='selected'>5 mi</option>
+                                        <option value ='16090'>10 mi</option>
+                                        <option value ='32200'>20 mi</option>
+                                    </select>
+                            </div>
+                            <div>
+                                <label for='price'>Price</label>
+                                    <input type='checkbox' class='prices' id='price1' value='1'>
+                                    <input type='checkbox' class='prices' id='price2' value='2'>
+                                    <input type='checkbox' class='prices' id='price3' value='3'>
+                                    <input type='checkbox' class='prices' id='price4' value='4'>
+                            </div>
+                            <div id='deliveryIsOpen'>
+                                <label for='delivery'>Delivery</label>
+                                    <input type='checkbox' class='deli' id='delivery' value= 'true'>
+                                <p id='delOpenSpacer'></p>
+                                <label for='isOpen'>Open Now</label>
+                                    <input type='checkbox' class='isO' id='isOpen' value='true'>
+                            </div>
+                            <div>
+                                <label for='terms'>Narrow Search</label>
+                                    <input type="text" id='terms' placeholder='italian sushi beer ...'>
+                            </div>
+                            <div>
+                                <label for='search-count'>Search Limit</label>
+                                    <select class="search-count">
                                     <!-- <option value ='50'>50 restaurants</option>
                                         <option value ='40'>40 restaurants</option>
                                         <option value ='30'>30 restaurants</option>      browser has a hard time searching more than 20-->
@@ -131,16 +137,17 @@
                                         <option value ='10' selected='selected'>10 restaurants</option>
                                         <option value ='5'>5 restaurants</option>
                                     </select>
-                                    <button id="settings" type="submit" >Submit</button>
-                                    <p id='search-again-message' class='hidden'>got nothing! try a different search...</p>
-                                </fieldset>
-                            </form>
-                        </div>                               
-                    </div>
-                    <div id='shadow'>
-                    </div>     
-                </main>
-            </body>
+                            </div>
+                                <button id="settings" type="submit" >Submit</button>
+                                <p id='search-again-message' class='hidden'>got nothing! try a different search...</p>
+                            </fieldset>
+                        </form>
+                    </div>                               
+                </div>
+                <div id='shadow'>
+                </div>     
+            </main>
+        </body>
     <footer>
     </footer>
     
