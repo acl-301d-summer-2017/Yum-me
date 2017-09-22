@@ -21,7 +21,7 @@ var app = app || {};
     let $altView = $('#altView');
     $altView.attr('href', '/grid');
     $altView.text('Grid');
-    
+
     $('#home').show().siblings().hide();
     homeView.slideShow();
   }
@@ -40,27 +40,26 @@ var app = app || {};
         name: currentBiz.name,
         distance: ((currentBiz.distance)*0.00062137).toFixed(2)
       }
-      // TODO: prevent showing from recent homeView.history
+      
       app.Biz.currentLocation = currentBiz.latLong;
       homeView.history.push(bizDisplay);
       homeView.historyPosition = homeView.history.length - 1;
 
 
-      // function initMap() {
-      //   var uluru = {lat: 45.22 , lng: -122.567};//lat long current 
-      //   var map = new google.maps.Map(document.getElementById('map'), {
-      //     zoom: 4,
-      //     center: uluru
-      //   });
-      //   console.log("uluru", uluru);
-      //   var marker = new google.maps.Marker({
-      //     position: uluru,
-      //     map: map
-      //   });
-      // }
+      function initMap() {
+        var uluru = {lat: 45.22 , lng: -122.567};//lat long current 
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: uluru
+        });
+        console.log("uluru", uluru);
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
       
-      // UNCOMMENT
-      // homeView.initMap();
+      homeView.initMap();
       homeView.$centerpiece.empty().append(homeView.centerpieceTemplate(bizDisplay));
     }
     
