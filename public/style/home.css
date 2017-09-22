@@ -25,6 +25,10 @@ header a {
     float: right;
 }
 
+div.gsc-input-box {
+    box-shadow: 0 0 1em black;
+}
+
 main{
     /* width: 100%; */
     /* margin-top: 10%; */
@@ -55,11 +59,11 @@ div #home{
 }
 
 #info {
-    width: 515px;
+    width: 453px;
     margin: auto;
     display: flex;
     justify-content: space-between;
-    padding-left: 56px;
+    padding-left: 37px;
 }
 
 #map-section {
