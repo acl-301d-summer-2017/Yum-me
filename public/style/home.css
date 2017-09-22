@@ -124,6 +124,10 @@ div.grid-row a .l-distance-spacer {
     transition: all 0.25s ease-in;
     z-index:-1;
 }
+
+div.grid-row a .l-distance-spacer h2{
+    margin-top: 1em;
+}
                       
 div.grid-row a:hover, a:focus {
     z-index: 5;
