@@ -12,10 +12,9 @@ var app = app || {};
         clearInterval(app.homeView.interval);
         $('#userInput').off();
         $('#userInput').submit(settingsControl.newSettingsHandler);
-        
-        
+
     }
-    
+        
     settingsControl.newSettingsHandler = function(event) {
         event.preventDefault();
 
