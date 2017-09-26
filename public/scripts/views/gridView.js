@@ -6,8 +6,8 @@ var app = app || {};
     gridView.display = function () {
         $('#grid').show().siblings().hide();
         let $altView = $('#altView');
-        $altView.attr('href', '/home');
-        $altView.text('Home');
+        $('.atView').attr('href', '/home');
+        $altView.attr('src','/style/icons/home.png');
         gridView.renderAll();
     }
 
@@ -21,7 +21,8 @@ var app = app || {};
                 allImages.push({
                     imgUrl: bzns.imgUrls[i],
                     yelpUrl: bzns.yelpUrl,
-                    distance: bzns.distance
+                    distance:((bzns.distance)*0.00062137).toFixed(2) + " mi",
+                    
                 })
             }
         });
